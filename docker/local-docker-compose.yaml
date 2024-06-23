@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  mongo:
+    image: bitnami/mongodb:latest
+    container_name: expense-service-mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGODB_DATABASE: ${MONGO_DATABASE}
+      MONGODB_ROOT_USER: ${MONGO_USER}
+      MONGODB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    volumes:
+      - '${EXPENSE_SERVICE_VOLUME}:/bitnami/mongodb'
