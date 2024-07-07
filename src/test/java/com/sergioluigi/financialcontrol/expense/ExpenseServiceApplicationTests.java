@@ -1,4 +1,4 @@
-package com.sergioluigi.financialcontrol.expense_service;
+package com.sergioluigi.financialcontrol.expense;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

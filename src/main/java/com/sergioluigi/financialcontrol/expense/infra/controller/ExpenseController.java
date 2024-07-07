@@ -1,8 +1,8 @@
-package com.sergioluigi.financialcontrol.expense_service.infra.controller;
+package com.sergioluigi.financialcontrol.expense.infra.controller;
 
-import com.sergioluigi.financialcontrol.expense_service.infra.controller.dto.NewExpenseRequestDTO;
-import com.sergioluigi.financialcontrol.expense_service.infra.controller.dto.NewExpenseResponseDTO;
-import com.sergioluigi.financialcontrol.expense_service.usecase.CreateExpenseUseCase;
+import com.sergioluigi.financialcontrol.expense.infra.controller.dto.NewExpenseRequestDTO;
+import com.sergioluigi.financialcontrol.expense.infra.controller.dto.NewExpenseResponseDTO;
+import com.sergioluigi.financialcontrol.expense.application.usecase.CreateExpenseUseCase;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import static org.springframework.http.HttpStatus.CREATED;

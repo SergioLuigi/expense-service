@@ -1,13 +1,13 @@
 version: '3.8'
 services:
-  mongo:
-    image: bitnami/mongodb:latest
-    container_name: expense-service-mongodb
-    ports:
-      - "27017:27017"
+  db:
+    image: mysql:latest
+    container_name: expense-service-db
+    restart: always
     environment:
-      MONGODB_DATABASE: ${MONGO_DATABASE}
-      MONGODB_ROOT_USER: ${MONGO_USER}
-      MONGODB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+      - MYSQL_DATABASE=expense
+      - MYSQL_ROOT_PASSWORD=$MYSQL_PASSWORD
+    ports:
+      - '3306:3306'
     volumes:
-      - '${EXPENSE_SERVICE_VOLUME}:/bitnami/mongodb'
+      - $MYSQL_VOLUME:/var/lib/mysql

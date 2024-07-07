@@ -1,4 +1,11 @@
+server:
+  error:
+    include-message: always
 spring:
-  data:
-    mongodb:
-      uri: "mongodb://${MONGO_PASSWORD}:${MONGO_USER}@localhost:27017/${MONGO_DATABASE}?authSource=admin"
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/expense
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true

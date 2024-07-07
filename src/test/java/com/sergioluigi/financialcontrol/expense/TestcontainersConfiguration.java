@@ -1,4 +1,4 @@
-package com.sergioluigi.financialcontrol.expense_service;
+package com.sergioluigi.financialcontrol.expense;
 
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
