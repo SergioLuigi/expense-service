@@ -1,4 +1,4 @@
-package com.sergioluigi.financialcontrol.expense.domain;
+package com.sergioluigi.financialcontrol.expense.domain.model;
 
 public enum PaymentMethod {
     CREDIT_CARD,

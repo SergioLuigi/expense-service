@@ -1,10 +1,11 @@
 package com.sergioluigi.financialcontrol.expense.infra.persistence.entity;
 
-import com.sergioluigi.financialcontrol.expense.domain.Expense;
-import com.sergioluigi.financialcontrol.expense.domain.PaymentMethod;
+import com.sergioluigi.financialcontrol.expense.domain.model.Expense;
+import com.sergioluigi.financialcontrol.expense.domain.model.PaymentMethod;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 import org.springframework.data.annotation.CreatedDate;
@@ -28,20 +29,20 @@ public class ExpensePersistence {
     private UUID id;
 
     @Column(nullable = false)
-    private final Double value;
+    private Double value;
 
     @Column(nullable = false)
-    private final LocalDate date;
+    private LocalDate date;
 
     @Column(length = 240)
-    private final String description;
+    private String description;
 
     @Column
-    private final boolean payed;
+    private boolean payed;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private final PaymentMethod paymentMethod;
+    private PaymentMethod paymentMethod;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
@@ -50,15 +51,17 @@ public class ExpensePersistence {
     @LastModifiedDate
     private LocalDateTime modifiedDate;
 
+    public ExpensePersistence(){}
+
     public static ExpensePersistence of(Expense expense) {
-        return new ExpensePersistence(null,
+        return new ExpensePersistence(expense.getId(),
                 expense.getValue(),
                 expense.getDate(),
                 expense.getDescription(),
                 expense.isPayed(),
                 expense.getPaymentMethod(),
-                null,
-                null);
+                expense.getCreatedDate(),
+                expense.getModifiedDate());
     }
 
     public Expense toExpense() {

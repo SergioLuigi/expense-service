@@ -1,14 +1,14 @@
 package com.sergioluigi.financialcontrol.expense.infra.controller.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.sergioluigi.financialcontrol.expense.domain.Expense;
-import com.sergioluigi.financialcontrol.expense.domain.PaymentMethod;
+import com.sergioluigi.financialcontrol.expense.domain.model.Expense;
+import com.sergioluigi.financialcontrol.expense.domain.model.PaymentMethod;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
-public record NewExpenseRequestDTO(
+public record SaveUpdateExpenseRequestDTO(
         @NotNull
         Double value,
         @NotNull

@@ -1,4 +1,4 @@
-package com.sergioluigi.financialcontrol.expense.infra.controller.exception;
+package com.sergioluigi.financialcontrol.expense.configuration.exception;
 
 import org.springframework.http.HttpStatus;
 

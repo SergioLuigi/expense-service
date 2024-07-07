@@ -2,7 +2,8 @@ package com.sergioluigi.financialcontrol.expense.application.gateway;
 
 import com.sergioluigi.financialcontrol.expense.domain.model.Expense;
 
-public interface SaveExpenseRepositoryGateway {
+import java.util.UUID;
 
-    Expense execute(Expense expense);
+public interface FindByIdExpenseRepositoryGateway {
+    Expense execute(UUID id);
 }

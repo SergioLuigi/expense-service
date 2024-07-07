@@ -1,11 +1,13 @@
 package com.sergioluigi.financialcontrol.expense.infra.controller.dto;
 
-import com.sergioluigi.financialcontrol.expense.domain.Expense;
-import com.sergioluigi.financialcontrol.expense.domain.PaymentMethod;
+import com.sergioluigi.financialcontrol.expense.domain.model.Expense;
+import com.sergioluigi.financialcontrol.expense.domain.model.PaymentMethod;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public record NewExpenseResponseDTO(
+        UUID id,
         Double value,
         LocalDate date,
         String description,
@@ -13,7 +15,8 @@ public record NewExpenseResponseDTO(
         PaymentMethod paymentMethod
 ) {
     public NewExpenseResponseDTO(Expense expense) {
-        this(expense.getValue(),
+        this(expense.getId(),
+            expense.getValue(),
             expense.getDate(),
             expense.getDescription(),
             expense.isPayed(),

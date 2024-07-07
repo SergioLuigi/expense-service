@@ -1,4 +1,4 @@
-package com.sergioluigi.financialcontrol.expense.domain;
+package com.sergioluigi.financialcontrol.expense.domain.model;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -43,5 +43,12 @@ public class Expense {
         this.paymentMethod = paymentMethod;
         this.createdDate = createdDate;
         this.modifiedDate = modifiedDate;
+    }
+
+    public Expense updateWith(Expense expense) {
+        return new Expense(this.id,
+                expense.value, expense.date,
+                expense.description, expense.payed,
+                expense.paymentMethod, this.createdDate, this.modifiedDate);
     }
 }
