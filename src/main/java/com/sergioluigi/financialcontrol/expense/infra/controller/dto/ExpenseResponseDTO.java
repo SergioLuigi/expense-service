@@ -6,7 +6,7 @@ import com.sergioluigi.financialcontrol.expense.domain.model.PaymentMethod;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public record NewExpenseResponseDTO(
+public record ExpenseResponseDTO(
         UUID id,
         Double value,
         LocalDate date,
@@ -14,7 +14,7 @@ public record NewExpenseResponseDTO(
         boolean payed,
         PaymentMethod paymentMethod
 ) {
-    public NewExpenseResponseDTO(Expense expense) {
+    public ExpenseResponseDTO(Expense expense) {
         this(expense.getId(),
             expense.getValue(),
             expense.getDate(),

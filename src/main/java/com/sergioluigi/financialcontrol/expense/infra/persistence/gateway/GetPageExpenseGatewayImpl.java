@@ -1,20 +1,22 @@
 package com.sergioluigi.financialcontrol.expense.infra.persistence.gateway;
 
-import com.sergioluigi.financialcontrol.expense.application.gateway.SaveExpenseRepositoryGateway;
-import com.sergioluigi.financialcontrol.expense.configuration.annotation.Gateway;
 import com.sergioluigi.financialcontrol.expense.domain.model.Expense;
 import com.sergioluigi.financialcontrol.expense.infra.persistence.entity.ExpensePersistence;
 import com.sergioluigi.financialcontrol.expense.infra.persistence.repository.ExpenseRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Repository;
 
-@Gateway
+@Repository
 @RequiredArgsConstructor
-public class SaveExpenseRepositoryGatewayImpl implements SaveExpenseRepositoryGateway {
+public class GetPageExpenseGatewayImpl {
 
     private final ExpenseRepository repository;
 
-    @Override
-    public Expense execute(Expense expense) {
-       return repository.save(ExpensePersistence.of(expense)).toExpense();
+    public Page<Expense> execute(Pageable pageable){
+        return repository.findAll(pageable)
+                .map(ExpensePersistence::toExpense);
     }
+
 }

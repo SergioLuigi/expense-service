@@ -4,6 +4,6 @@ import com.sergioluigi.financialcontrol.expense.domain.model.Expense;
 
 import java.util.UUID;
 
-public interface FindByIdExpenseRepositoryGateway {
+public interface FindByIdExpenseGateway {
     Expense execute(UUID id);
 }

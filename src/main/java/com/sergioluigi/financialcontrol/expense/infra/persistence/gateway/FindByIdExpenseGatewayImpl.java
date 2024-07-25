@@ -1,6 +1,6 @@
 package com.sergioluigi.financialcontrol.expense.infra.persistence.gateway;
 
-import com.sergioluigi.financialcontrol.expense.application.gateway.FindByIdExpenseRepositoryGateway;
+import com.sergioluigi.financialcontrol.expense.application.gateway.FindByIdExpenseGateway;
 import com.sergioluigi.financialcontrol.expense.configuration.annotation.Gateway;
 import com.sergioluigi.financialcontrol.expense.domain.exception.ExpenseNotFoundException;
 import com.sergioluigi.financialcontrol.expense.domain.model.Expense;
@@ -11,8 +11,8 @@ import java.util.UUID;
 
 @Gateway
 @RequiredArgsConstructor
-public class FindByIdExpenseRepositoryGatewayImpl
-        implements FindByIdExpenseRepositoryGateway {
+public class FindByIdExpenseGatewayImpl
+        implements FindByIdExpenseGateway {
 
     private final ExpenseRepository repository;
 

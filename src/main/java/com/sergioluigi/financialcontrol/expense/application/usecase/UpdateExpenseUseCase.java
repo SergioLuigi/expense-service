@@ -1,7 +1,7 @@
 package com.sergioluigi.financialcontrol.expense.application.usecase;
 
-import com.sergioluigi.financialcontrol.expense.application.gateway.FindByIdExpenseRepositoryGateway;
-import com.sergioluigi.financialcontrol.expense.application.gateway.SaveExpenseRepositoryGateway;
+import com.sergioluigi.financialcontrol.expense.application.gateway.FindByIdExpenseGateway;
+import com.sergioluigi.financialcontrol.expense.application.gateway.SaveExpenseGateway;
 import com.sergioluigi.financialcontrol.expense.configuration.annotation.UseCase;
 import com.sergioluigi.financialcontrol.expense.domain.model.Expense;
 import lombok.RequiredArgsConstructor;
@@ -13,8 +13,8 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class UpdateExpenseUseCase {
 
-    private final SaveExpenseRepositoryGateway saveExpense;
-    private final FindByIdExpenseRepositoryGateway findExpenseById;
+    private final SaveExpenseGateway saveExpense;
+    private final FindByIdExpenseGateway findExpenseById;
 
     @Transactional
     public Expense execute(UUID id, Expense updatedExpense) {
