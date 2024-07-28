@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public record SaveUpdateExpenseRequestDTO(
         @NotNull
@@ -19,6 +20,8 @@ public record SaveUpdateExpenseRequestDTO(
         String description,
         boolean payed,
         @NotNull
+        UUID categoryId,
+        @NotNull
         PaymentMethod paymentMethod
 ) {
 
@@ -28,6 +31,7 @@ public record SaveUpdateExpenseRequestDTO(
                 .value(value)
                 .description(description)
                 .payed(payed)
+                .categoryId(categoryId)
                 .paymentMethod(paymentMethod)
                 .build();
     }

@@ -12,6 +12,7 @@ public record ExpenseResponseDTO(
         LocalDate date,
         String description,
         boolean payed,
+        UUID categoryId,
         PaymentMethod paymentMethod
 ) {
     public ExpenseResponseDTO(Expense expense) {
@@ -20,6 +21,7 @@ public record ExpenseResponseDTO(
             expense.getDate(),
             expense.getDescription(),
             expense.isPayed(),
+            expense.getCategoryId(),
             expense.getPaymentMethod());
     }
 }

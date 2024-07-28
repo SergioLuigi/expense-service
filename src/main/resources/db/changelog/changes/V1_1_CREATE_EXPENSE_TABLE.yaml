@@ -1,0 +1,54 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: SergioLuigi
+      changes:
+        - createTable:
+            tableName: expense
+            columns:
+              - column:
+                  name: id
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: value
+                  type: double
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(240)
+              - column:
+                  name: payed
+                  type: BIT
+              - column:
+                  name: category_id
+                  type: varchar(36)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: payment_method
+                  type: varchar(240)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_date
+                  type: timestamp
+              - column:
+                  name: modified_date
+                  type: timestamp
+        - addForeignKeyConstraint:
+            baseTableSchemaName: expense
+            baseTableName: expense
+            baseColumnNames: category_id
+            referencedTableSchemaName: category
+            referencedTableName: category
+            referencedColumnNames: id
+            constraintName: fk_expense_category

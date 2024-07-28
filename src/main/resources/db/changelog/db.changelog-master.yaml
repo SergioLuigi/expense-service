@@ -1,3 +1,7 @@
 databaseChangeLog:
   - include:
-    - file: db/changelog/change/V1_CREATE_EXPENSE_TABLE.yaml
+    - file: db/changelog/changes/V1_0_CREATE_REVIFO.yaml
+  - include:
+      - file: db/changelog/changes/V1_1_CREATE_EXPENSE_TABLE.yaml
+  - include:
+      - file: db/changelog/changes/V1_2_CREATE_EXPENSE_TABLE_HISTORY.yaml

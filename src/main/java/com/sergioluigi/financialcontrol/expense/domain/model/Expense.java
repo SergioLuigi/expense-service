@@ -21,6 +21,8 @@ public class Expense {
 
     private final boolean payed;
 
+    private final UUID categoryId;
+
     private final PaymentMethod paymentMethod;
 
     private final LocalDateTime createdDate;
@@ -32,6 +34,7 @@ public class Expense {
                     LocalDate date,
                     String description,
                     boolean payed,
+                    UUID categoryId,
                     PaymentMethod paymentMethod,
                     LocalDateTime createdDate,
                     LocalDateTime modifiedDate) {
@@ -40,6 +43,7 @@ public class Expense {
         this.date = date;
         this.description = description;
         this.payed = payed;
+        this.categoryId = categoryId;
         this.paymentMethod = paymentMethod;
         this.createdDate = createdDate;
         this.modifiedDate = modifiedDate;
@@ -48,7 +52,7 @@ public class Expense {
     public Expense updateWith(Expense expense) {
         return new Expense(this.id,
                 expense.value, expense.date,
-                expense.description, expense.payed,
+                expense.description, expense.payed, expense.categoryId,
                 expense.paymentMethod, this.createdDate, this.modifiedDate);
     }
 }

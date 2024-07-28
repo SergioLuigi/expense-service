@@ -35,4 +35,10 @@ public class GlobalExceptionHandler {
                 errors, request.getRequestURI());
     }
 
+    @ResponseStatus(BAD_REQUEST)
+    @ExceptionHandler(ExpenseException.class)
+    public CustomErrorResponse expenseExceptionHandler(ExpenseException ex) {
+        return ex.getErrorResponse();
+    }
+
 }

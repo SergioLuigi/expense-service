@@ -5,8 +5,8 @@ import com.sergioluigi.financialcontrol.expense.domain.model.PaymentMethod;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.envers.Audited;
 import org.hibernate.type.SqlTypes;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -18,6 +18,7 @@ import java.util.UUID;
 
 @Data
 @Entity
+@Audited
 @AllArgsConstructor
 @Table(name = "expense")
 @EntityListeners(AuditingEntityListener.class)
@@ -34,15 +35,22 @@ public class ExpensePersistence {
     @Column(nullable = false)
     private LocalDate date;
 
-    @Column(length = 240)
+    @Column(nullable = false)
     private String description;
 
-    @Column
-    private boolean payed;
+    @Column(nullable = false)
+    private boolean payed = false;
+
+    @Column(nullable = false)
+    @JdbcTypeCode(SqlTypes.VARCHAR)
+    private UUID categoryId;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;
+
+//    @Column
+//    private UUID creditCardId;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
@@ -59,6 +67,7 @@ public class ExpensePersistence {
                 expense.getDate(),
                 expense.getDescription(),
                 expense.isPayed(),
+                expense.getCategoryId(),
                 expense.getPaymentMethod(),
                 expense.getCreatedDate(),
                 expense.getModifiedDate());
@@ -71,6 +80,7 @@ public class ExpensePersistence {
                         .value(value)
                         .description(description)
                         .payed(payed)
+                        .categoryId(categoryId)
                         .paymentMethod(paymentMethod)
                         .createdDate(createdDate)
                         .modifiedDate(modifiedDate)

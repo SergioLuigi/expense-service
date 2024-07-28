@@ -8,4 +8,18 @@ spring:
     password: ${MYSQL_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    show-sql: true
+    hibernate:
+      ddl-auto: validate
+    properties:
+      org:
+        hibernate:
+          ddl-auto: validate
+          envers:
+            audit_table_suffix: _history
+            revision_field_name: rev
+            revision_type_field_name: revtype
+            store_data_at_delete: true
+
+rest:
+  clients:
+    category-service: http://localhost:8083
